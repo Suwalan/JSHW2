@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>JSHW2</title>
+ 
+</head>
+<body>
+
+ <div class="calculator">
+
+        <h2 align="center">JS Calculator</h2>
+            <form>
+                <h5 align="center"><label>Number 1</label><br>
+                <input type="text" id="num1" name="" required=""></h5>
+                <h5 align="center"><label>Number 2</label><br>
+                <input type="text" id="num2" name="" required=""></h5>
+                <h5 align="center"><label>Operate way?</label></h5>
+                <h5 align="center">
+                 <select id="operate">
+                     <option value="+">+</option>
+                     <option value="-">-</option>
+                     <option value="*">*</option>
+                     <option value="/">/</option>
+                 </select></h5>
+             
+                <h5 align="center"><button type="button" id="start" class="Text">Count</button></h5>
+
+                <h3 align="center">Result =
+                <h3 align="center" id="result" class="Text"></h3>
+                <h3 align="center" id="ans" class="Text"></h3>
+            </form>
+    </div>
+        
+    <script>
+        window.addEventListener("load", start);
+
+        function start(){
+            var button = document.getElementById("start");
+            button.addEventListener("click", click);
+            document.getElementById("result").style.display="none";
+        }
+
+        function click() {
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            var operator = document.getElementById("operate").value;
+            var ans = 0;
+
+            if(num1 && num2){
+                if(operator=="+"){
+                    ans = parseInt(num1) + parseInt(num2);
+                }else if(operator=="-"){
+                    ans = num1-num2;
+                }else if(operator=="*"){
+                    ans = num1*num2;
+                }else if(operator=="/"){
+                    ans = (num1/num2).toFixed(2);
+                }
+                document.getElementById("result").style.display="",
+                document.getElementById("ans").innerHTML = ans;
+            }
+        }
+    </script>
+ </script>
+</body>
+</html>
